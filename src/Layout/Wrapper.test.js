@@ -1,7 +1,12 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import Wrapper from './Wrapper';
+import LayoutStore from './store';
 
 it('renders without crashing', () => {
-  shallow(<Wrapper />);
+  mount(
+    <Wrapper layout={ new LayoutStore() }>
+      <div>smack</div>
+    </Wrapper>
+  );
 });

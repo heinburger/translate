@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { inject } from 'mobx-react'
 import { withStyles } from '@material-ui/core/styles';
 import EventListener from 'react-event-listener';
 
@@ -12,22 +13,17 @@ const styles = theme => ({
   },
 });
 
-const Wrapper = ({ classes, children, onResize }) => (
+const Wrapper = ({ classes, children, layout }) => (
   <div className={classes.frame}>
     {children}
-    <EventListener target='window' onResize={onResize} />
+    <EventListener target='window' onResize={layout.onScreenResize} />
   </div>
 );
 
 Wrapper.propTypes = {
   children: PropTypes.element.isRequired,
   classes: PropTypes.object.isRequired,
-  onResize: PropTypes.func,
+  layout: PropTypes.object.isRequired,
 };
 
-Wrapper.defaultProps = {
-  children: <div />,
-  onResize: () => { console.warn('no onResize function was supplied to Wrapper') },
-};
-
-export default withStyles(styles)(Wrapper);
+export default inject('layout')(withStyles(styles)(Wrapper));
