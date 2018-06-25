@@ -1,4 +1,4 @@
-import LayoutStore from '../Layout/store'
+import LayoutStore from '../Layout/store';
 
 export default class AppStore {
   constructor() {
