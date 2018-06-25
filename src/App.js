@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        whatup
+        <div>whatup</div>
       </Wrapper>
     );
   }
