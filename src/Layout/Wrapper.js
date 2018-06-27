@@ -21,7 +21,7 @@ const Wrapper = ({ classes, children, layout }) => (
 );
 
 Wrapper.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]).isRequired,
   classes: PropTypes.object.isRequired,
   layout: PropTypes.object.isRequired,
 };

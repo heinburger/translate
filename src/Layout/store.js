@@ -14,7 +14,7 @@ class LayoutStore {
     return this.screenWidth <= 960 || this.shouldHidePermDrawer
   }
 
-  onScreenResize() {
+  onScreenResize = () => {
     this.screenWidth = getScreenWidth();
   }
 }
