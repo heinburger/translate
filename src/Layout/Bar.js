@@ -2,16 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { observer, inject } from 'mobx-react';
 import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
+import MuiAppBar from '@material-ui/core/AppBar';
 
 const styles = theme => ({
-  appBar: {
-    top: 0,
+  position: 'absolute',
+  marginLeft: theme.drawerWidth,
+  [theme.breakpoints.up('md')]: {
+    width: `calc(100% - ${theme.drawerWidth}px)`,
   },
 })
 
 const Bar = ({ layout, classes, theme, children }) => (
-  <AppBar
+  <MuiAppBar
     className={classes.appBar}
     style={{
       right: 0,
@@ -20,7 +22,7 @@ const Bar = ({ layout, classes, theme, children }) => (
     }}
   >
     {children}
-  </AppBar>
+  </MuiAppBar>
 )
 
 Bar.propTypes = {

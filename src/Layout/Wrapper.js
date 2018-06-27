@@ -5,16 +5,19 @@ import { withStyles } from '@material-ui/core/styles';
 import EventListener from 'react-event-listener';
 
 const styles = theme => ({
-  frame: {
-    width: '100%',
+  wrapper: {
+    flexGrow: 1,
+    zIndex: 1,
+    height: '100vh',
+    overflow: 'hidden',
+    position: 'relative',
     display: 'flex',
-    minHeight: '100vh',
-    alignItems: 'stretch',
+    width: '100%',
   },
 });
 
 const Wrapper = ({ classes, children, layout }) => (
-  <div className={classes.frame}>
+  <div className={classes.wrapper}>
     {children}
     <EventListener target='window' onResize={layout.onScreenResize} />
   </div>
