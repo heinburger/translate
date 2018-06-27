@@ -1,9 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { observer, inject } from 'mobx-react';
 import { withStyles } from '@material-ui/core/styles';
 import MuiDrawer from '@material-ui/core/Drawer';
-import MuiHidden from '@material-ui/core/Hidden';
 // import MuiDivider from '@material-ui/core/Divider';
 
 const styles = theme => ({
@@ -15,7 +14,7 @@ const styles = theme => ({
   },
 });
 
-const Drawer = ({ layout, classes, children }) => (
+const Nav = ({ layout, classes, children }) => (
   <MuiDrawer
     variant={layout.showTempDrawer ? 'temporary' : 'permanent'}
     anchor='left'
@@ -32,10 +31,10 @@ const Drawer = ({ layout, classes, children }) => (
   </MuiDrawer>
 )
 
-Drawer.propTypes = {
+Nav.propTypes = {
   children: PropTypes.element.isRequired,
   classes: PropTypes.object.isRequired,
   layout: PropTypes.object.isRequired,
 }
 
-export default inject('layout')(withStyles(styles)(observer(Drawer)))
+export default inject('layout')(withStyles(styles)(observer(Nav)))
