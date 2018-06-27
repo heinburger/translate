@@ -6,6 +6,8 @@ import Root from './Root';
 
 const App = ({ store }) => (
   <Provider
+    history={store.history}
+    theme={store.theme}
     layout={store.layout}
   >
     <Root />

@@ -1,4 +1,4 @@
-import { decorate, observable, action } from 'mobx';
+import { decorate, observable, action, computed } from 'mobx';
 import { getScreenWidth } from '../utils';
 
 class LayoutStore {
@@ -9,9 +9,12 @@ class LayoutStore {
   tempDrawerOpen = false;
   shouldHidePermDrawer = false;
   screenWidth = getScreenWidth();
-  layoutRight = false;
 
-  onScreenResize = () => {
+  get showTempDrawer() {
+    return this.screenWidth <= 960 || this.shouldHidePermDrawer
+  }
+
+  onScreenResize() {
     this.screenWidth = getScreenWidth();
   }
 }
@@ -20,7 +23,7 @@ decorate(LayoutStore, {
   tempDrawerOpen: observable,
   shouldHidePermDrawer: observable,
   screenWidth: observable,
-  layoutRight: observable,
+  showTempDrawer: computed,
   onScreenResize: action,
 });
 

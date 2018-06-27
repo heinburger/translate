@@ -1,22 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router } from 'react-router-dom'
-import { inject, observer } from 'mobx-react'
+import { Router } from 'react-router-dom';
+import { MuiThemeProvider } from '@material-ui/core/styles'
+import { inject, observer } from 'mobx-react';
 
-import { Wrapper } from '../Layout'
+import { Wrapper, Drawer } from '../Layout'
 
-const Root = ({ layout }) => (
-  <Router>
-    <Wrapper>
-      <div>
-        hi
-      </div>
-    </Wrapper>
+const Root = ({ history, theme, layout }) => (
+  <Router history={history}>
+    <MuiThemeProvider theme={theme}>
+      <Wrapper>
+        <div>
+          <Drawer><div>whatup</div></Drawer>
+          <div>
+            hi
+          </div>
+        </div>
+      </Wrapper>
+    </MuiThemeProvider>
   </Router>
 );
 
 Root.propTypes = {
   layout: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
-export default inject('layout')(observer(Root));
+export default inject('layout', 'theme', 'history')(observer(Root));
