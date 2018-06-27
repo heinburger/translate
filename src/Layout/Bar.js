@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { observer, inject } from 'mobx-react';
 import { withStyles } from '@material-ui/core/styles';
 import MuiAppBar from '@material-ui/core/AppBar';
+import MuiToolbar from '@material-ui/core/Toolbar';
 
 const styles = theme => ({
   position: 'absolute',
@@ -21,7 +22,9 @@ const Bar = ({ layout, classes, theme, children }) => (
       width: layout.showTempDrawer ? '100%' : `calc(100% - ${theme.drawerWidth}px)`,
     }}
   >
-    {children}
+    <MuiToolbar>
+      {children}
+    </MuiToolbar>
   </MuiAppBar>
 )
 

@@ -4,7 +4,7 @@ import { Router } from 'react-router-dom';
 import { MuiThemeProvider } from '@material-ui/core/styles'
 import { inject, observer } from 'mobx-react';
 
-import { Wrapper, Nav, Bar } from '../Layout'
+import { Wrapper, Nav, Bar, Content } from '../Layout'
 
 const Root = ({ history, theme, layout }) => (
   <Router history={history}>
@@ -12,7 +12,9 @@ const Root = ({ history, theme, layout }) => (
       <Wrapper>
         <Bar><div>bar</div></Bar>
         <Nav><div>drawer</div></Nav>
-        <div>content</div>
+        <Content>
+          <div>content</div>
+        </Content>
       </Wrapper>
     </MuiThemeProvider>
   </Router>
