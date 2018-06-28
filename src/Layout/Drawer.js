@@ -14,7 +14,7 @@ const styles = theme => ({
   },
 });
 
-const Nav = ({ layout, classes, children }) => (
+const Drawer = ({ layout, classes, children }) => (
   <MuiDrawer
     variant={layout.showTempDrawer ? 'temporary' : 'permanent'}
     anchor='left'
@@ -31,10 +31,10 @@ const Nav = ({ layout, classes, children }) => (
   </MuiDrawer>
 )
 
-Nav.propTypes = {
+Drawer.propTypes = {
   children: PropTypes.element.isRequired,
   classes: PropTypes.object.isRequired,
   layout: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(inject('layout')(observer(Nav)))
+export default withStyles(styles)(inject('layout')(observer(Drawer)))
