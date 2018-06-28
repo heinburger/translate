@@ -1,17 +1,12 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Provider } from 'mobx-react';
+import { Provider } from './Provider';
 import Root from './Root';
-import RootStore from './store';
+import AppStore from './store';
 
-it('renders without crashing (needs a provider)', () => {
-  let store = new RootStore();
+it('renders without crashing', () => {
   mount(
-    <Provider
-      layout={ store.layout }
-      theme={ store.theme }
-      history={ store.history }
-    >
+    <Provider store={ new AppStore() }>
       <Root />
     </Provider>
   );

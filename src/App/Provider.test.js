@@ -1,8 +1,12 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import App from './index';
+import Provider from './Provider';
 import AppStore from './store';
 
 it('renders without crashing', () => {
-  mount(<App store={ new AppStore() } />);
+  mount(
+    <Provider store={ new AppStore() }>
+      <div>withStore</div>
+    </Provider>
+  );
 });

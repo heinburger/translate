@@ -1,22 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Router } from 'react-router-dom';
-import { MuiThemeProvider } from '@material-ui/core/styles'
 import { inject, observer } from 'mobx-react';
+import { Router } from 'react-router-dom';
 
+import Theme from '../Theme'
 import { Wrapper, Drawer, Bar, Content } from '../Layout'
 
 const Root = ({ history, theme, layout }) => (
   <Router history={history}>
-    <MuiThemeProvider theme={theme}>
+    <Theme>
       <Wrapper>
-        <Bar><div>bar</div></Bar>
+        <Bar><div onClick={theme.toggleLightDark}>bar</div></Bar>
         <Drawer><div>drawer</div></Drawer>
         <Content>
           <div>content</div>
         </Content>
       </Wrapper>
-    </MuiThemeProvider>
+    </Theme>
   </Router>
 );
 
