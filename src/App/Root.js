@@ -26,4 +26,4 @@ Root.propTypes = {
   history: PropTypes.object.isRequired,
 };
 
-export default inject('layout', 'theme', 'history')(observer(Root));
+export default inject('layout', 'theme', 'history')(Root);
