@@ -41,8 +41,8 @@ const StyledBar = withStyles(styles, { withTheme: true})(Bar)
 
 const InjectedBar = ({ layout, ...rest }) => (
   <StyledBar
-    { ...rest }
     showTempDrawer={layout.showTempDrawer}
+    { ...rest }
   />
 );
 

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { inject, observer } from 'mobx-react';
 import { Router } from 'react-router-dom';
 
-import ThemeProvider from '../Theme'
-import { Wrapper, Drawer, Bar, Content } from '../Layout'
+import ThemeProvider from '../Theme';
+import { Wrapper, Drawer, Bar, Content } from '../Layout';
 
 const Root = ({ history, theme, layout }) => (
   <Router history={history}>
@@ -26,4 +26,6 @@ Root.propTypes = {
   history: PropTypes.object.isRequired,
 };
 
-export default inject('layout', 'theme', 'history')(Root);
+const InjectedRoot = ({ ...stores }) => <Root { ...stores } />;
+
+export default inject('layout', 'theme', 'history')(InjectedRoot);

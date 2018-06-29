@@ -43,10 +43,10 @@ const StyledDrawer = withStyles(styles)(Drawer);
 
 const InjectedDrawer = ({ layout, ...rest }) => (
   <StyledDrawer
-    { ...rest }
     showTempDrawer={layout.showTempDrawer}
     tempDrawerOpen={layout.tempDrawerOpen}
     toggleTempDrawer={layout.toggleTempDrawer}
+    { ...rest }
   />
 );
 

@@ -33,8 +33,8 @@ const StyledWrapper = withStyles(styles)(Wrapper);
 
 const InjectedWrapper = ({ layout, ...rest }) => (
   <StyledWrapper
-    { ...rest }
     onScreenResize={layout.onScreenResize}
+    { ...rest }
   />
 );
 

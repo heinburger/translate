@@ -4,7 +4,7 @@ import { MuiThemeProvider } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
 const ThemeProvider = ({ theme, children }) => (
-  <MuiThemeProvider theme={theme.currentTheme}>
+  <MuiThemeProvider theme={theme}>
     {children}
   </MuiThemeProvider>
 );
@@ -14,4 +14,11 @@ ThemeProvider.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-export default inject('theme')(observer(ThemeProvider));
+const InjectedThemeProvider = ({ theme, ...rest }) => (
+  <ThemeProvider
+    theme={theme.currentTheme}
+    { ...rest }
+  />
+);
+
+export default inject('theme')(observer(InjectedThemeProvider));
