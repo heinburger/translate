@@ -17,11 +17,13 @@ const styles = theme => ({
   },
 });
 
-const Bar = ({ showTempDrawer, classes, theme, children }) => (
+const Bar = ({ layout, classes, theme, children }) => (
   <MuiAppBar
     className={classes.appBar}
     style={{
-      width: showTempDrawer ? '100%' : `calc(100% - ${theme.drawerWidth}px)`,
+      width: layout.showTempDrawer
+        ? '100%'
+        : `calc(100% - ${theme.drawerWidth}px)`,
     }}
   >
     <MuiToolbar>
@@ -34,16 +36,9 @@ Bar.propTypes = {
   children: PropTypes.element.isRequired,
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
-  showTempDrawer: PropTypes.bool.isRequired,
+  layout: PropTypes.object.isRequired,
 };
 
-const StyledBar = withStyles(styles, { withTheme: true})(Bar)
-
-const InjectedBar = ({ layout, ...rest }) => (
-  <StyledBar
-    showTempDrawer={layout.showTempDrawer}
-    { ...rest }
-  />
+export default withStyles(styles, { withTheme: true })(
+  inject('layout')(observer(Bar))
 );
-
-export default inject('layout')(observer(InjectedBar));

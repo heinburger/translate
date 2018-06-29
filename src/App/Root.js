@@ -5,9 +5,9 @@ import { Router } from 'react-router-dom';
 
 import ThemeProvider from '../Theme';
 import { Wrapper, Drawer, Bar, Content } from '../Layout';
-import Toolbar from '../Toolbar'
+import Toolbar from '../Toolbar';
 
-const Root = ({ history, toggleLightDark }) => (
+const Root = ({ history }) => (
   <Router history={history}>
     <ThemeProvider>
       <Wrapper>
@@ -22,16 +22,7 @@ const Root = ({ history, toggleLightDark }) => (
 );
 
 Root.propTypes = {
-  toggleLightDark: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
 };
 
-const InjectedRoot = ({ history, theme, ...rest }) => (
-  <Root
-    toggleLightDark={theme.toggleLightDark}
-    history={history}
-    { ...rest }
-  />
-);
-
-export default inject('theme', 'history')(InjectedRoot);
+export default inject('history')(Root);

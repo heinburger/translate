@@ -16,26 +16,19 @@ const styles = theme => ({
   },
 });
 
-const Wrapper = ({ classes, children, onScreenResize }) => (
+const Wrapper = ({ classes, children, layout }) => (
   <div className={classes.wrapper}>
     {children}
-    <EventListener target='window' onResize={onScreenResize} />
+    <EventListener target='window' onResize={layout.onScreenResize} />
   </div>
 );
 
 Wrapper.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]).isRequired,
   classes: PropTypes.object.isRequired,
-  onScreenResize: PropTypes.func.isRequired,
+  layout: PropTypes.object.isRequired,
 };
 
-const StyledWrapper = withStyles(styles)(Wrapper);
-
-const InjectedWrapper = ({ layout, ...rest }) => (
-  <StyledWrapper
-    onScreenResize={layout.onScreenResize}
-    { ...rest }
-  />
+export default withStyles(styles)(
+  inject('layout')(Wrapper)
 );
-
-export default inject('layout')(InjectedWrapper);

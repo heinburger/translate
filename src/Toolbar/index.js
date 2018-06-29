@@ -1,22 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { inject, observer } from 'mobx-react';
 
-import ToggleDrawerButton from './ToggleDrawerButton'
+import ToggleDrawerButton from './ToggleDrawerButton';
 
-const Toolbar = ({ showTempDrawer, toggleTempDrawer }) => (
+const Toolbar = ({ layout }) => (
   <React.Fragment>
-    {showTempDrawer
-      ? <ToggleDrawerButton onClick={toggleTempDrawer} />
+    {layout.showTempDrawer
+      ? <ToggleDrawerButton onClick={layout.toggleTempDrawer} />
       : <React.Fragment />}
   </React.Fragment>
 );
 
-const InjectedToolbar = ({ layout, ...rest }) => (
-  <Toolbar
-    showTempDrawer={layout.showTempDrawer}
-    toggleTempDrawer={layout.toggleTempDrawer}
-    { ...rest }
-  />
-);
+Toolbar.propTypes = {
+  layout: PropTypes.object.isRequired,
+};
 
-export default inject('layout')(observer(InjectedToolbar));
+export default inject('layout')(observer(Toolbar));
