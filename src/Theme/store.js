@@ -17,7 +17,7 @@ class ThemeStore {
   }
 
   // ACTIONS....................................................................
-  toggleLightDark = () => {
+  toggleLightTheme = () => {
     this.settings.palette.type = this.settings.palette.type === 'light'
       ? 'dark'
       : 'light';
@@ -27,7 +27,7 @@ class ThemeStore {
 decorate(ThemeStore, {
   settings: observable,
   currentTheme: computed,
-  toggleLightDark: action,
+  toggleLightTheme: action,
 });
 
 export default ThemeStore;

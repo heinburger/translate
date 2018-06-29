@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import LightbulbOutline from '@material-ui/icons/LightbulbOutline';
 
 const ToggleDrawerButton = ({ onClick }) => (
   <IconButton
     color='inherit'
-    aria-label='open drawer'
+    aria-label='toggle light theme'
     onClick={onClick}
   >
-    <MenuIcon />
+    <LightbulbOutline />
   </IconButton>
 );
 
