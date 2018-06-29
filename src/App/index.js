@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Provider from './Provider'
+import StoreProvider from './StoreProvider'
 import Root from './Root';
 
 const App = ({ store }) => (
-  <Provider store={store}>
+  <StoreProvider store={store}>
     <Root />
-  </Provider>
+  </StoreProvider>
 );
 
 export default App;

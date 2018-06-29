@@ -14,12 +14,12 @@ const styles = theme => ({
   },
 });
 
-const Drawer = ({ layout, classes, children }) => (
+const Drawer = ({ showTempDrawer, tempDrawerOpen, toggleTempDrawer, classes, children }) => (
   <MuiDrawer
-    variant={layout.showTempDrawer ? 'temporary' : 'permanent'}
+    variant={showTempDrawer ? 'temporary' : 'permanent'}
     anchor='left'
-    open={layout.showTempDrawer ? layout.tempDrawerOpen : true}
-    onClose={layout.toggleTempDrawer}
+    open={showTempDrawer ? tempDrawerOpen : true}
+    onClose={toggleTempDrawer}
     classes={{
       paper: classes.drawerPaper,
     }}
@@ -34,7 +34,20 @@ const Drawer = ({ layout, classes, children }) => (
 Drawer.propTypes = {
   children: PropTypes.element.isRequired,
   classes: PropTypes.object.isRequired,
-  layout: PropTypes.object.isRequired,
+  showTempDrawer: PropTypes.bool.isRequired,
+  tempDrawerOpen: PropTypes.bool.isRequired,
+  toggleTempDrawer: PropTypes.func.isRequired,
 }
 
-export default withStyles(styles)(inject('layout')(observer(Drawer)))
+const StyledDrawer = withStyles(styles)(Drawer);
+
+const InjectedDrawer = ({ layout, ...rest }) => (
+  <StyledDrawer
+    { ...rest }
+    showTempDrawer={layout.showTempDrawer}
+    tempDrawerOpen={layout.tempDrawerOpen}
+    toggleTempDrawer={layout.toggleTempDrawer}
+  />
+);
+
+export default inject('layout')(observer(InjectedDrawer));

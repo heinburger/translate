@@ -23,4 +23,4 @@ Content.propTypes = {
   classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(Content)
+export default withStyles(styles)(Content);

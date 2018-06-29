@@ -17,6 +17,10 @@ class LayoutStore {
   onScreenResize = () => {
     this.screenWidth = getScreenWidth();
   }
+
+  toggleTempDrawer = () => {
+    this.tempDrawerOpen = !this.tempDrawerOpen;
+  }
 }
 
 decorate(LayoutStore, {
@@ -25,6 +29,7 @@ decorate(LayoutStore, {
   screenWidth: observable,
   showTempDrawer: computed,
   onScreenResize: action,
+  toggleTempDrawer: action,
 });
 
 export default LayoutStore;

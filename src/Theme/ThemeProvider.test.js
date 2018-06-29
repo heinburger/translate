@@ -1,12 +1,12 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Provider from './Provider';
+import ThemeProvider from './ThemeProvider';
 import ThemeStore from './store';
 
 it('renders without crashing', () => {
   mount(
-    <Provider theme={ new ThemeStore() }>
+    <ThemeProvider theme={ new ThemeStore() }>
       <div>themed</div>
-    </Provider>
+    </ThemeProvider>
   );
 });

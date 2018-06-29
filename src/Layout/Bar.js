@@ -7,34 +7,43 @@ import MuiToolbar from '@material-ui/core/Toolbar';
 
 const styles = theme => ({
   appBar: {
+    right: 0,
+    left: 'auto',
     position: 'absolute',
     marginLeft: theme.drawerWidth,
     [theme.breakpoints.up('md')]: {
       width: `calc(100% - ${theme.drawerWidth}px)`,
     },
   },
-})
+});
 
-const Bar = ({ layout, classes, theme, children }) => (
+const Bar = ({ showTempDrawer, classes, theme, children }) => (
   <MuiAppBar
     className={classes.appBar}
     style={{
-      right: 0,
-      left: 'auto',
-      width: layout.showTempDrawer ? '100%' : `calc(100% - ${theme.drawerWidth}px)`,
+      width: showTempDrawer ? '100%' : `calc(100% - ${theme.drawerWidth}px)`,
     }}
   >
     <MuiToolbar>
       {children}
     </MuiToolbar>
   </MuiAppBar>
-)
+);
 
 Bar.propTypes = {
   children: PropTypes.element.isRequired,
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
-  layout: PropTypes.object.isRequired,
-}
+  showTempDrawer: PropTypes.bool.isRequired,
+};
 
-export default withStyles(styles, { withTheme: true })(inject('layout')(observer(Bar)))
+const StyledBar = withStyles(styles, { withTheme: true})(Bar)
+
+const InjectedBar = ({ layout, ...rest }) => (
+  <StyledBar
+    { ...rest }
+    showTempDrawer={layout.showTempDrawer}
+  />
+);
+
+export default inject('layout')(observer(InjectedBar));
