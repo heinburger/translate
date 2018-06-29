@@ -5,12 +5,13 @@ import { Router } from 'react-router-dom';
 
 import ThemeProvider from '../Theme';
 import { Wrapper, Drawer, Bar, Content } from '../Layout';
+import Toolbar from '../Toolbar'
 
-const Root = ({ history, theme, layout }) => (
+const Root = ({ history, toggleLightDark }) => (
   <Router history={history}>
     <ThemeProvider>
       <Wrapper>
-        <Bar><div onClick={theme.toggleLightDark}>bar</div></Bar>
+        <Bar><Toolbar /></Bar>
         <Drawer><div>drawer</div></Drawer>
         <Content>
           <div>content</div>
@@ -21,11 +22,16 @@ const Root = ({ history, theme, layout }) => (
 );
 
 Root.propTypes = {
-  layout: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
+  toggleLightDark: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
 };
 
-const InjectedRoot = ({ ...stores }) => <Root { ...stores } />;
+const InjectedRoot = ({ history, theme, ...rest }) => (
+  <Root
+    toggleLightDark={theme.toggleLightDark}
+    history={history}
+    { ...rest }
+  />
+);
 
-export default inject('layout', 'theme', 'history')(InjectedRoot);
+export default inject('theme', 'history')(InjectedRoot);
