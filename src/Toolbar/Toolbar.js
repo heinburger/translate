@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography'
 
 import ToggleDrawerButton from './ToggleDrawerButton';
 import ToggleLightThemeButton from './ToggleLightThemeButton';
+import Search from '../Search'
 
 const styles = theme => ({
   title: Object.assign({}, theme.mixins.gutters(), {
@@ -24,8 +25,9 @@ const Toolbar = ({ layout, theme, classes }) => (
       color='inherit'
       noWrap
     >
-      Whatup
+      WhatupWhatupWhatupToolbarToolbar
     </Typography>
+    <Search />
     <ToggleLightThemeButton onClick={theme.toggleLightTheme} />
   </React.Fragment>
 );
