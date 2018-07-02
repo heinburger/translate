@@ -8,7 +8,7 @@ const ToggleLightThemeButton = ({ theme }) => (
   <IconButton
     color='inherit'
     aria-label='toggle light theme'
-    onClick={theme.toggleLightTheme}
+    onClick={() => theme.toggleLightTheme()}
   >
     <LightbulbOutline />
   </IconButton>

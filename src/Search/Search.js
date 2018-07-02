@@ -1,4 +1,5 @@
 import React from 'react';
+import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search'
@@ -49,4 +50,4 @@ Search.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Search);
+export default withStyles(styles)(observer(Search));

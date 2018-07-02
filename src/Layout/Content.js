@@ -1,4 +1,5 @@
 import React from 'react';
+import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -23,4 +24,4 @@ Content.propTypes = {
   classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(Content);
+export default withStyles(styles)(observer(Content));

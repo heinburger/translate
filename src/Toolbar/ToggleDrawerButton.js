@@ -8,7 +8,7 @@ const ToggleDrawerButton = ({ layout }) => (
   <IconButton
     color='inherit'
     aria-label='open drawer'
-    onClick={layout.toggleTempDrawer}
+    onClick={() => layout.toggleTempDrawer()}
   >
     <MenuIcon />
   </IconButton>

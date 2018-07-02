@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { inject } from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 import { withStyles } from '@material-ui/core/styles';
 import EventListener from 'react-event-listener';
 
@@ -30,5 +30,5 @@ Wrapper.propTypes = {
 };
 
 export default withStyles(styles)(
-  inject('layout')(Wrapper)
+  inject('layout')(observer(Wrapper))
 );

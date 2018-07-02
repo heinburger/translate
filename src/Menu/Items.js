@@ -5,6 +5,7 @@ import { inject, observer } from 'mobx-react';
 const Items = ({ layout }) => (
   <div>
     Items
+    <div onClick={() => layout.toggleTest()}>toggle</div>
     {layout.test && <div>t d o</div>}
   </div>
 );
