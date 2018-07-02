@@ -1,13 +1,8 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import StoreProvider from './StoreProvider';
+import { shallow } from 'enzyme';
 import Root from './Root';
-import AppStore from './store';
+import createBrowserHistory from 'history/createBrowserHistory';
 
 it('renders without crashing', () => {
-  mount(
-    <StoreProvider store={ new AppStore() }>
-      <Root />
-    </StoreProvider>
-  );
+  shallow(<Root history={createBrowserHistory()} />);
 });

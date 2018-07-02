@@ -1,6 +1,5 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-
 import { Wrapper, Drawer, Bar, Content } from '../Layout';
 import Toolbar from '../Toolbar';
 import Menu from '../Menu';
