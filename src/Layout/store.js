@@ -1,7 +1,5 @@
-import { decorate, observable, action, computed, configure } from 'mobx';
+import { decorate, observable, action, computed } from 'mobx';
 import { getScreenWidth } from '../utils';
-
-configure({enforceActions: true});
 
 class LayoutStore {
   constructor(appStore) {
