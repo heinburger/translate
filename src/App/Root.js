@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { inject, observer } from 'mobx-react';
+import { inject } from 'mobx-react';
 import { Router } from 'react-router-dom';
 
 import ThemeProvider from '../Theme';
