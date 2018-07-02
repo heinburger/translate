@@ -10,6 +10,7 @@ class LayoutStore {
 
   // OBSERVABLES................................................................
   tempDrawerOpen = false;
+  test = false;
   shouldHidePermDrawer = false;
   screenWidth = getScreenWidth();
 
@@ -25,6 +26,10 @@ class LayoutStore {
 
   toggleTempDrawer = () => {
     this.tempDrawerOpen = !this.tempDrawerOpen;
+  }
+
+  toggleTest = () => {
+    this.test = !this.test;
   }
 }
 
