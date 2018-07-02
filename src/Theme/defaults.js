@@ -11,7 +11,7 @@ const themeDefaults = {
   },
   palette: {
     primary: teal,
-    type: 'dark'
+    type: 'light'
   },
   drawerWidth: 240,
 }

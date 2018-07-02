@@ -6,14 +6,17 @@ class LayoutStore {
     this.appStore = appStore;
   }
 
+  // OBSERVABLES................................................................
   tempDrawerOpen = false;
   shouldHidePermDrawer = false;
   screenWidth = getScreenWidth();
 
+  // COMPUTEDS..................................................................
   get showTempDrawer() {
     return this.screenWidth <= 960 || this.shouldHidePermDrawer;
   }
 
+  // ACTIONS....................................................................
   onScreenResize = () => {
     this.screenWidth = getScreenWidth();
   }
