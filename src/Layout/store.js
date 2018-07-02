@@ -8,6 +8,7 @@ class LayoutStore {
 
   // OBSERVABLES................................................................
   tempDrawerOpen = false;
+  test = false;
   shouldHidePermDrawer = false;
   screenWidth = getScreenWidth();
 
@@ -24,14 +25,20 @@ class LayoutStore {
   toggleTempDrawer = () => {
     this.tempDrawerOpen = !this.tempDrawerOpen;
   }
+
+  toggleTest = () => {
+    this.test = !this.test
+  }
 }
 
 decorate(LayoutStore, {
   tempDrawerOpen: observable,
   shouldHidePermDrawer: observable,
+  test: observable,
   screenWidth: observable,
   showTempDrawer: computed,
   onScreenResize: action,
+  toggleTest: action,
   toggleTempDrawer: action,
 });
 

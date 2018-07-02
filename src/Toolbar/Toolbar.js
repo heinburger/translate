@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography'
 
 import ToggleDrawerButton from './ToggleDrawerButton';
 import ToggleLightThemeButton from './ToggleLightThemeButton';
+import GithubLinkButton from './GithubLinkButton';
 import Search from '../Search'
 
 const styles = theme => ({
@@ -14,10 +15,10 @@ const styles = theme => ({
   }),
 });
 
-const Toolbar = ({ layout, theme, classes }) => (
+const Toolbar = ({ layout, classes }) => (
   <React.Fragment>
     {layout.showTempDrawer
-      ? <ToggleDrawerButton onClick={layout.toggleTempDrawer} />
+      ? <ToggleDrawerButton />
       : <React.Fragment />}
     <Typography
       className={classes.title}
@@ -28,15 +29,15 @@ const Toolbar = ({ layout, theme, classes }) => (
       WhatupWhatupWhatupToolbarToolbar
     </Typography>
     <Search />
-    <ToggleLightThemeButton onClick={theme.toggleLightTheme} />
+    <ToggleLightThemeButton />
+    <GithubLinkButton />
   </React.Fragment>
 );
 
 Toolbar.propTypes = {
   layout: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(
-  inject('layout', 'theme')(observer(Toolbar))
+  inject('layout')(observer(Toolbar))
 );

@@ -1,20 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { inject } from 'mobx-react';
 import IconButton from '@material-ui/core/IconButton';
 import LightbulbOutline from '@material-ui/icons/LightbulbOutline';
 
-const ToggleDrawerButton = ({ onClick }) => (
+const ToggleLightThemeButton = ({ theme }) => (
   <IconButton
     color='inherit'
     aria-label='toggle light theme'
-    onClick={onClick}
+    onClick={theme.toggleLightTheme}
   >
     <LightbulbOutline />
   </IconButton>
 );
 
-ToggleDrawerButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
+ToggleLightThemeButton.propTypes = {
+  theme: PropTypes.object.isRequired,
 };
 
-export default ToggleDrawerButton;
+export default inject('theme')(ToggleLightThemeButton);
