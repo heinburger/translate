@@ -44,7 +44,7 @@ const Header = ({ classes, history }) => (
       onClick={() => history.push('/')}
     >
       <Translate className={classes.icon} />
-      Translations
+      Translate
     </Typography>
     <Typography className={classes.caption} variant='caption' noWrap>
       v0.1.0
