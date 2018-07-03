@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 // this component dictates which stores can be injected into app components
 const StoreProvider = ({ store, children }) => (
   <MobxProvider
-    history={store.history}
     theme={store.theme}
     layout={store.layout}
   >

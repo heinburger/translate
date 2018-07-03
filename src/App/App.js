@@ -8,7 +8,7 @@ const App = ({ store }) => (
   <StoreProvider store={store}>
     <React.Fragment>
       <DevTools />
-      <Root />
+      <Root history={store.history} />
     </React.Fragment>
   </StoreProvider>
 );

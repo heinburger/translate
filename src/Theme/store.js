@@ -1,5 +1,9 @@
 import { decorate, observable, action, computed } from 'mobx';
-import { createMuiTheme } from '@material-ui/core/styles'
+import { createMuiTheme } from '@material-ui/core/styles';
+import amber from '@material-ui/core/colors/amber';
+import teal from '@material-ui/core/colors/teal';
+import deepPurple from '@material-ui/core/colors/deepPurple';
+import cyan from '@material-ui/core/colors/cyan';
 
 import defaults from './defaults'
 
@@ -7,6 +11,13 @@ class ThemeStore {
   constructor(appStore) {
     this.appStore = appStore;
   }
+
+  iconColors = {
+    learning: teal[500],
+    star: amber[500],
+    snoozed: deepPurple[300],
+    pin: cyan[500],
+  };
 
   // OBSERVABLES................................................................
   settings = defaults;

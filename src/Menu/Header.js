@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { inject, observer } from 'mobx-react';
+import { withRouter } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Translate from '@material-ui/icons/Translate';
@@ -58,5 +58,5 @@ Header.propTypes = {
 }
 
 export default withStyles(styles)(
-  inject('history')(observer(Header))
+  withRouter(Header)
 );
