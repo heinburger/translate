@@ -1,21 +1,35 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { inject } from 'mobx-react';
 import { Route } from 'react-router-dom';
 import { Wrapper, Drawer, Bar, Content } from '../Layout';
 import Toolbar from '../Toolbar';
 import Menu from '../Menu';
 
-const Routes = () => (
+const Routes = ({ theme }) => (
   <Wrapper>
-    <Route path='/' render={props => (
-      <React.Fragment>
-        <Bar><Toolbar /></Bar>
-        <Drawer><Menu /></Drawer>
-      </React.Fragment>
-    )} />
-    <Route exact path='/list' render={props => (
-      <Content><div>content</div></Content>
-    )} />
+    <Route path='/' render={({ location }) => {
+      const routePieces = location.pathname.split('/');
+      const routeName = routePieces[routePieces.length - 1];
+      return (
+        <React.Fragment>
+          <Bar color={theme.routeColors[routeName]}>
+            <Toolbar routeName={routeName} />
+          </Bar>
+          <Drawer><Menu /></Drawer>
+        </React.Fragment>
+      )
+    }} />
+    <Content>
+      <Route path='/list/:filter' render={props => (
+        <div>{props.match.params.filter}</div>
+      )} />
+    </Content>
   </Wrapper>
 );
 
-export default Routes;
+Routes.propTypes = {
+  theme: PropTypes.object.isRequired,
+};
+
+export default inject('theme')(Routes);

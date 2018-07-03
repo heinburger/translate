@@ -15,7 +15,7 @@ const styles = theme => ({
   input: {
     width: '200px',
     transition: 'width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
-    color: theme.palette.getContrastText(theme.palette.primary.main),
+    color: 'inherit',
     backgroundColor: 'rgba(255, 255, 255, 0.15)',
     border: 'none',
     outline: 'none',

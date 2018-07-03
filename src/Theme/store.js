@@ -1,6 +1,7 @@
 import { decorate, observable, action, computed } from 'mobx';
 import { createMuiTheme } from '@material-ui/core/styles';
 import amber from '@material-ui/core/colors/amber';
+import grey from '@material-ui/core/colors/grey';
 import teal from '@material-ui/core/colors/teal';
 import deepPurple from '@material-ui/core/colors/deepPurple';
 import cyan from '@material-ui/core/colors/cyan';
@@ -18,6 +19,13 @@ class ThemeStore {
     snoozed: deepPurple[300],
     pin: cyan[500],
   };
+
+  routeColors = {
+    default: teal,
+    snoozed: deepPurple,
+    stars: amber,
+    all: grey,
+  }
 
   // OBSERVABLES................................................................
   settings = defaults;
