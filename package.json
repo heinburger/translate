@@ -1,6 +1,7 @@
 {
   "name": "translate",
   "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "@material-ui/core": "^1.2.3",
     "@material-ui/icons": "^1.1.0",
@@ -21,7 +22,7 @@
     "react-test-renderer": "^16.4.1",
     "source-map-explorer": "^1.5.0"
   },
-  "homepage": "https://heinburger.github.io/translate",
+  "homepage": "https://heinburger.github.io/translate/",
   "scripts": {
     "analyze": "source-map-explorer build/static/js/main.*",
     "predeploy": "npm run build",
