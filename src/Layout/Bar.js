@@ -24,7 +24,7 @@ const Bar = ({ layout, classes, theme, children, color }) => (
       backgroundColor: color ? color[theme.currentTheme.palette.type === 'dark' ? 700 : 300] : undefined,
       width: layout.showTempDrawer
         ? '100%'
-        : `calc(100% - ${theme.drawerWidth}px)`,
+        : `calc(100% - ${theme.currentTheme.drawerWidth}px)`,
     }}
   >
     <MuiToolbar>
