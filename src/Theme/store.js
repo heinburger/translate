@@ -6,11 +6,13 @@ import teal from '@material-ui/core/colors/teal';
 import deepPurple from '@material-ui/core/colors/deepPurple';
 import cyan from '@material-ui/core/colors/cyan';
 
-import defaults from './defaults'
+import defaults from './defaults';
+import { setBodyColor } from '../utils';
 
 class ThemeStore {
   constructor(appStore) {
     this.appStore = appStore;
+    this.setThemeBodyColor();
   }
 
   iconColors = {
@@ -27,6 +29,10 @@ class ThemeStore {
     all: grey,
   }
 
+  setThemeBodyColor = () => {
+    setBodyColor(this.settings.bodyColor[this.settings.palette.type]);
+  }
+
   // OBSERVABLES................................................................
   settings = defaults;
 
@@ -40,6 +46,7 @@ class ThemeStore {
     this.settings.palette.type = this.settings.palette.type === 'light'
       ? 'dark'
       : 'light';
+    this.setThemeBodyColor();
   }
 }
 

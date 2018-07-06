@@ -7,6 +7,8 @@ const StoreProvider = ({ store, children }) => (
   <MobxProvider
     theme={store.theme}
     layout={store.layout}
+    preferences={store.preferences}
+    data={store.data}
   >
     {children}
   </MobxProvider>
